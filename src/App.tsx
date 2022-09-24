@@ -1,4 +1,4 @@
-import Layout from "components/layout";
+import Layout from "layout";
 import Category from "features/Category";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "utils/route";

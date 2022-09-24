@@ -1,13 +1,16 @@
 @import "./variables.scss";
 
 .root-container {
-	padding: 0 2rem;
+	padding: 0 5rem;
+	background-color: $cWhite;
+	color: $cText;
 }
 .nav_container {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding: 1rem 0;
 
 	& > div {
 		flex: 1;

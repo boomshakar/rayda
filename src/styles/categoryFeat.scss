@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.catgory_pg-container {
+	padding-top: 5%;
+	.product-section {
+		display: flex;
+		align-items: center;
+		justify-content: stretch;
+		flex-wrap: wrap;
+	}
+}
