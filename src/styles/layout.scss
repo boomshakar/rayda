@@ -1,0 +1,53 @@
+@import "./variables.scss";
+
+.root-container {
+	padding: 0 2rem;
+}
+.nav_container {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	& > div {
+		flex: 1;
+		flex-grow: 0;
+	}
+
+	.nav-link-contain {
+		display: flex;
+		align-items: center;
+
+		.nav-link {
+			width: fit-content;
+			padding: 0.3rem 0.9rem 1rem 0.9rem;
+			font-size: 16px;
+			line-height: 120%;
+			text-transform: uppercase;
+			& > a {
+				color: $cText;
+				text-decoration: none;
+			}
+
+			&.active {
+				border-bottom: 1px solid green;
+				font-weight: 600;
+				& > a {
+					color: $cPrimary;
+				}
+			}
+		}
+	}
+	.logo-contain {
+		text-align: center;
+	}
+	.nav_end-action {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+
+		span:last-child {
+			margin-left: 1rem;
+		}
+	}
+}
