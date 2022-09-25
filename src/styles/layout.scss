@@ -1,20 +1,24 @@
 @import "./variables.scss";
 
 .root-container {
-	padding: 0 5rem;
 	background-color: $cWhite;
 	color: $cText;
+	width: 100%;
 }
 .nav_container {
-	width: 100%;
+	box-sizing: border-box;
 	display: flex;
+	position: fixed;
+	z-index: 11;
+	background-color: $cWhite;
+	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 1rem 0;
+	padding: 1rem 5rem;
 
 	& > div {
 		flex: 1;
-		flex-grow: 0;
+		// flex-grow: 0;
 	}
 
 	.nav-link-contain {
@@ -49,8 +53,19 @@
 		align-items: center;
 		justify-content: flex-end;
 
+		span {
+			cursor: pointer;
+		}
 		span:last-child {
 			margin-left: 1rem;
 		}
+	}
+}
+.page_container {
+	position: relative;
+	width: 100%;
+
+	.page_comp {
+		padding: 0 5rem;
 	}
 }

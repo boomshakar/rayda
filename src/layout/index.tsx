@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { routes } from "utils/route";
 import "styles/layout.scss";
+import CartPopUp from "components/CartPopUp";
 
 const Layout: React.FC = () => {
+	const [showCart, setShowCart] = useState(false);
 	const location = useLocation();
 
+	const handleCartAction = () => {
+		setShowCart(!showCart);
+	};
+
 	return (
-		<main className="root-container">
+		<div className="root-container">
 			<nav className="nav_container">
 				<div className="nav-link-contain">
 					<div className={`nav-link ${location.pathname === routes.category && "active"}`}>
@@ -25,15 +31,18 @@ const Layout: React.FC = () => {
 				</div>
 				<div className="nav_end-action">
 					<span>$</span>
-					<span>
+					<span onClick={handleCartAction}>
 						<img src="/asset/Icon/cart-icon.svg" alt="cart" />
 					</span>
 				</div>
 			</nav>
-			<div>
-				<Outlet />
-			</div>
-		</main>
+			<main className="page_container">
+				<CartPopUp visible={showCart} />
+				<div className="page_comp">
+					<Outlet />
+				</div>
+			</main>
+		</div>
 	);
 };
 
