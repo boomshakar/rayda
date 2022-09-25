@@ -1,24 +1,23 @@
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { selectCartDrawer, toggle } from "store/uiSlice";
 import "styles/cartFeat.scss";
 import Button from "./buttons/Button";
 import CounterButton from "./buttons/CounterButton";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
 
-type Props = {
-	visible: boolean;
-	setVisible: (value: boolean) => void;
-};
-
-const CartPopUp = (props: Props) => {
+const CartPopUp = () => {
 	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+	const cartDrawerVisibility = useAppSelector(selectCartDrawer);
 
 	const handleViewBag = () => {
 		navigate("/cart");
-		props.setVisible(!props.visible);
+		dispatch(toggle());
 	};
 	return (
-		<div className={`cart_popup-contain${props.visible ? " w-open" : ""}`}>
+		<div className={`cart_popup-contain${cartDrawerVisibility ? " w-open" : ""}`}>
 			<div className="cart_items">
 				<div className="cart_item">
 					<div className="item_title">

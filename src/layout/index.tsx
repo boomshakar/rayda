@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { routes } from "utils/route";
 import "styles/layout.scss";
 import CartPopUp from "components/CartPopUp";
+import { useAppDispatch } from "hooks/redux-hooks.";
+import { toggle } from "store/uiSlice";
 
 const Layout: React.FC = () => {
-	const [showCart, setShowCart] = useState(false);
 	const location = useLocation();
+	const dispatch = useAppDispatch();
 
 	const handleCartAction = () => {
-		setShowCart(!showCart);
+		dispatch(toggle());
 	};
 
 	return (
@@ -37,7 +39,7 @@ const Layout: React.FC = () => {
 				</div>
 			</nav>
 			<main className="page_container">
-				<CartPopUp setVisible={setShowCart} visible={showCart} />
+				<CartPopUp />
 				<div className="page_comp">
 					<Outlet />
 				</div>
