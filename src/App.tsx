@@ -1,10 +1,21 @@
 import Layout from "layout";
-import Category from "features/Category";
+import Category from "pages/Category";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { routes } from "utils/route";
-import ProductDetail from "features/ProductDetail";
-import Cart from "features/Cart";
+import ProductDetail from "pages/ProductDetail";
+import Cart from "pages/Cart";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
+import { calculateTotal, selectCart } from "store/cartSlice";
 function App() {
+	const dispatch = useAppDispatch();
+	const { cartItems } = useAppSelector(selectCart);
+	useEffect(() => {
+		dispatch(calculateTotal());
+		return () => {};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [cartItems]);
+
 	return (
 		<div className="">
 			<Router>

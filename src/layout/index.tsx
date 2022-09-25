@@ -3,12 +3,14 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { routes } from "utils/route";
 import "styles/layout.scss";
 import CartPopUp from "components/CartPopUp";
-import { useAppDispatch } from "hooks/redux-hooks.";
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { toggle } from "store/uiSlice";
+import { selectCart } from "store/cartSlice";
 
 const Layout: React.FC = () => {
 	const location = useLocation();
 	const dispatch = useAppDispatch();
+	const cartModel = useAppSelector(selectCart);
 
 	const handleCartAction = () => {
 		dispatch(toggle());
@@ -35,6 +37,7 @@ const Layout: React.FC = () => {
 					<span>$</span>
 					<span onClick={handleCartAction}>
 						<img src="/asset/Icon/cart-icon.svg" alt="cart" />
+						<span>{cartModel.amount}</span>
 					</span>
 				</div>
 			</nav>

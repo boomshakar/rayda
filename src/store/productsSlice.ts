@@ -16,8 +16,6 @@ export const productSlice = createSlice({
 		},
 		saveproducts: (state, action: PayloadAction<ProductItemModel[]>) => {
 			const { payload } = action;
-			console.log({ payload });
-			console.log({ action });
 			state.list = payload;
 			state.isLoading = false;
 		},

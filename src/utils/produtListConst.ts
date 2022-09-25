@@ -8,10 +8,13 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: true,
+		// prdt_qty: 1,
 	},
 	{
 		id: "JOIGUFI3493FDF",
@@ -22,10 +25,13 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: true,
+		// prdt_qty: 1,
 	},
 	{
 		id: "BUYW3487GUDSDSF",
@@ -36,8 +42,10 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: false,
 	},
@@ -50,10 +58,13 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: true,
+		// prdt_qty: 1,
 	},
 	{
 		id: "98SRDFGVSKUEWERK",
@@ -64,10 +75,13 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: true,
+		// prdt_qty: 1,
 	},
 	{
 		id: "RE4342JHSD989DSQW",
@@ -78,9 +92,44 @@ export const productListConst = [
 		prdt_subTitle: "Running Short",
 		prdt_desc:
 			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-		prdt_color: ["#D3D2D5", "#2B2B2B", "#0F6450"],
-		prdt_size: ["XS", "S", "M", "L"],
+		prdt_color: "#D3D2D5",
+		prdt_color_arr: ["#D3D2D5", "#2B2B2B", "#0F6450"],
+		prdt_size: "XS",
+		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
 		prdt_instock: true,
+		// prdt_qty: 1,
+	},
+];
+
+export const defaultCartItem = [
+	{
+		id: "DUJ3287DNS8SF",
+		prdt_img: "/asset/products/grey-top.png",
+		prdt_imgXs: "/asset/products/grey-top-xs.png",
+		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_title: "Apollo",
+		prdt_subTitle: "Running Short",
+		prdt_desc:
+			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+		prdt_color: "#D3D2D5",
+		prdt_size: "L",
+		prdt_price: 50,
+		prdt_instock: true,
+		prdt_qty: 1,
+	},
+	{
+		id: "JOIGUFI3493FDF",
+		prdt_img: "/asset/products/peach-sleeve.png",
+		prdt_imgXs: "/asset/products/grey-top-xs.png",
+		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_title: "Apollo",
+		prdt_subTitle: "Running Short",
+		prdt_desc:
+			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+		prdt_color: "#0F6450",
+		prdt_size: "S",
+		prdt_price: 50,
+		prdt_qty: 1,
 	},
 ];
