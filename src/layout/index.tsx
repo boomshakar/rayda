@@ -37,7 +37,7 @@ const Layout: React.FC = () => {
 				</div>
 			</nav>
 			<main className="page_container">
-				<CartPopUp visible={showCart} />
+				<CartPopUp setVisible={setShowCart} visible={showCart} />
 				<div className="page_comp">
 					<Outlet />
 				</div>

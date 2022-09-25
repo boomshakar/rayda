@@ -50,7 +50,7 @@ const ProductDetailInfo = (props: Props) => {
 				<p>$50.00</p>
 			</div>
 			<div className="product_cta">
-				<Button value="ADD TO CART" which="lead" />
+				<Button onClick={() => {}} value="ADD TO CART" which="lead" />
 			</div>
 			<div className="product_details">
 				<p>

@@ -1,14 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "styles/cartFeat.scss";
 import Button from "./buttons/Button";
 import CounterButton from "./buttons/CounterButton";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
 
 type Props = {
-	visible: Boolean;
+	visible: boolean;
+	setVisible: (value: boolean) => void;
 };
 
 const CartPopUp = (props: Props) => {
+	const navigate = useNavigate();
+
+	const handleViewBag = () => {
+		navigate("/cart");
+		props.setVisible(!props.visible);
+	};
 	return (
 		<div className={`cart_popup-contain${props.visible ? " w-open" : ""}`}>
 			<div className="cart_items">
@@ -72,8 +80,8 @@ const CartPopUp = (props: Props) => {
 						<span>$200.00</span>
 					</div>
 					<div className="cta">
-						<Button value="VIEW BAG" which="outline" />
-						<Button value="CHECK OUT" which="lead" />
+						<Button onClick={handleViewBag} value="VIEW BAG" which="outline" />
+						<Button onClick={() => {}} value="CHECK OUT" which="lead" />
 					</div>
 				</div>
 			</div>
