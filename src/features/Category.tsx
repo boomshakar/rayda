@@ -14,18 +14,17 @@ const Category: React.FC = () => {
 		dispatch(startFetch());
 		dispatch(saveproducts(productListConst));
 		return () => {};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div className="catgory_pg-container">
 			<h1>Category name</h1>
 			<section className="product-section">
-				{/* Product cards */}
-				<ProductCard />
-				<ProductCard />
-				<ProductCard />
-				<ProductCard />
-				<ProductCard />
-				<ProductCard />
+				{isProductListLoading ? (
+					<div>Loading ...</div>
+				) : (
+					productList.map((product) => <ProductCard key={product.id} product={product} />)
+				)}
 			</section>
 		</div>
 	);

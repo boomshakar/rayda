@@ -17,10 +17,10 @@ export interface CartProductModel {
 }
 
 export interface ProductListModel {
-	list: ProductItem[];
+	list: ProductItemModel[];
 	isLoading: boolean;
 }
-export interface ProductItem {
+export interface ProductItemModel {
 	id: string;
 	prdt_img: string;
 	prdt_imgXs: string;

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ProductItem, ProductListModel } from "models/redux-models";
+import { ProductItemModel, ProductListModel } from "models/redux-models";
 import { RootState } from "store";
 
 const initialState: ProductListModel = {
@@ -14,7 +14,7 @@ export const productSlice = createSlice({
 		startFetch: (state) => {
 			state.isLoading = true;
 		},
-		saveproducts: (state, action: PayloadAction<ProductItem[]>) => {
+		saveproducts: (state, action: PayloadAction<ProductItemModel[]>) => {
 			const { payload } = action;
 			console.log({ payload });
 			console.log({ action });

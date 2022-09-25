@@ -15,7 +15,7 @@ export const productListConst = [
 	},
 	{
 		id: "JOIGUFI3493FDF",
-		prdt_img: "/asset/products/grey-top.png",
+		prdt_img: "/asset/products/peach-sleeve.png",
 		prdt_imgXs: "/asset/products/grey-top-xs.png",
 		prdt_imgXl: "/asset/products/grey-top-xl.png",
 		prdt_title: "Apollo",
@@ -29,7 +29,7 @@ export const productListConst = [
 	},
 	{
 		id: "BUYW3487GUDSDSF",
-		prdt_img: "/asset/products/grey-top.png",
+		prdt_img: "/asset/products/stripe-sleeve.png",
 		prdt_imgXs: "/asset/products/grey-top-xs.png",
 		prdt_imgXl: "/asset/products/grey-top-xl.png",
 		prdt_title: "Apollo",
@@ -43,7 +43,7 @@ export const productListConst = [
 	},
 	{
 		id: "634VUSD78E3SDSF",
-		prdt_img: "/asset/products/grey-top.png",
+		prdt_img: "/asset/products/creme-bag.png",
 		prdt_imgXs: "/asset/products/grey-top-xs.png",
 		prdt_imgXl: "/asset/products/grey-top-xl.png",
 		prdt_title: "Apollo",
@@ -71,7 +71,7 @@ export const productListConst = [
 	},
 	{
 		id: "RE4342JHSD989DSQW",
-		prdt_img: "/asset/products/grey-top.png",
+		prdt_img: "/asset/products/stripe-sleeve.png",
 		prdt_imgXs: "/asset/products/grey-top-xs.png",
 		prdt_imgXl: "/asset/products/grey-top-xl.png",
 		prdt_title: "Apollo",
