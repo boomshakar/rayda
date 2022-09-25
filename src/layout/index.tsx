@@ -23,7 +23,7 @@ const Layout: React.FC = () => {
 						<Link to={routes.test}>Mens</Link>
 					</div>
 					<div className={`nav-link ${location.pathname === routes.category && "active"}`}>
-						<Link to={routes.category}>Kids</Link>
+						<Link to={routes.test}>Kids</Link>
 					</div>
 				</div>
 				<div className="logo-contain">
