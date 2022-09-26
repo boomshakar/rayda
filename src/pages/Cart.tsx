@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import Button from "components/buttons/Button";
 import CounterButton from "components/buttons/CounterButton";
 import ColorCheckbox from "components/checkbox/ColorCheckbox";
 import SizeCheckbox from "components/checkbox/SizeCheckbox";
 import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { CartProductModel } from "models/redux-models";
-import React from "react";
+import { PaystackButton, usePaystackPayment } from "react-paystack";
 import {
 	changeCartItemColor,
 	changeCartItemSize,
@@ -13,6 +14,8 @@ import {
 	selectCart,
 } from "store/cartSlice";
 import "styles/cartFeat.scss";
+import { on } from "events";
+import { PaystackProps } from "react-paystack/dist/types";
 
 const Cart = () => {
 	const { cartItems, total, tax, amount } = useAppSelector(selectCart);
@@ -32,6 +35,26 @@ const Cart = () => {
 		dispatch(changeCartItemColor({ item, value: e.target.value }));
 	};
 
+	const config: PaystackProps = {
+		reference: new Date().getTime().toString(),
+		email: "user@example.com",
+		amount: 20000,
+		publicKey: "pk_test_7ad4118026dde176163b79afb1aed42811acbbda",
+		firstname: "cool",
+		lastname: "story",
+		// currency: "USD",
+	};
+	const initializePayment = usePaystackPayment(config);
+	const onSuccess = (reference: void) => {
+		// Implementation for whatever you want to do with reference and after success call.
+		console.log(reference);
+	};
+
+	const onClose = () => {
+		// implementation for  whatever you want to do when the Paystack dialog closed.
+		console.log("closed");
+	};
+
 	if (!amount) {
 		return (
 			<div className="cart_pg-container">
@@ -47,7 +70,7 @@ const Cart = () => {
 			<h3 className="pg_title">CART</h3>
 			{/* <button onClick={() => dispatch(clearCartItems())}>Remove all items</button> */}
 			{cartItems.map((item) => (
-				<div className="cart_item">
+				<div className="cart_item" key={item.id}>
 					<div>
 						<div className="item_spec">
 							<h2 className="item_title">{item.prdt_title}</h2>
@@ -110,7 +133,7 @@ const Cart = () => {
 					<p>Total:&nbsp; </p>
 					<p>${total.toFixed(2)}</p>
 				</div>
-				<Button value="ORDER" which="lead" onClick={() => {}} />
+				<Button value="ORDER" which="lead" onClick={() => initializePayment(onSuccess, onClose)} />
 			</div>
 		</div>
 	);
