@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartArrayModel, CartProductModel, ProductItemModel } from "models/redux-models";
 import { RootState } from "store";
-import { defaultCartItem } from "utils/produtListConst";
+// import { defaultCartItem } from "utils/produtListConst";
 
 const initialState: CartArrayModel = {
 	cartItems: [],
@@ -32,8 +32,6 @@ export const cartSlice = createSlice({
 			} else {
 				const defaultItem = {
 					...payload,
-					// prdt_color: payload.prdt_color[0],
-					// prdt_size: payload.prdt_size[0],
 					prdt_qty: 1,
 				};
 				state.cartItems.push(defaultItem);
@@ -71,11 +69,33 @@ export const cartSlice = createSlice({
 			state.tax = tax;
 			state.total = totalWithTax;
 		},
+		changeCartItemSize: (state, action) => {
+			const { payload } = action;
+			const cartItem = state.cartItems.find((item) => item.id === payload.item.id);
+			if (cartItem) {
+				cartItem.prdt_size = payload.value;
+			}
+		},
+		changeCartItemColor: (state, action) => {
+			const { payload } = action;
+			const cartItem = state.cartItems.find((item) => item.id === payload.item.id);
+			if (cartItem) {
+				cartItem.prdt_color = payload.value;
+			}
+		},
 	},
 });
 
-export const { addItemToCart, calculateTotal, clearCartItems, decreaseCartItem, increaseCartItem, removeCartItem } =
-	cartSlice.actions;
+export const {
+	addItemToCart,
+	calculateTotal,
+	clearCartItems,
+	decreaseCartItem,
+	increaseCartItem,
+	removeCartItem,
+	changeCartItemSize,
+	changeCartItemColor,
+} = cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart;
 

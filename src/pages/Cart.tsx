@@ -1,14 +1,21 @@
 import Button from "components/buttons/Button";
 import CounterButton from "components/buttons/CounterButton";
+import ColorCheckbox from "components/checkbox/ColorCheckbox";
 import SizeCheckbox from "components/checkbox/SizeCheckbox";
 import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { CartProductModel } from "models/redux-models";
 import React from "react";
-import { clearCartItems, decreaseCartItem, increaseCartItem, selectCart } from "store/cartSlice";
+import {
+	changeCartItemColor,
+	changeCartItemSize,
+	decreaseCartItem,
+	increaseCartItem,
+	selectCart,
+} from "store/cartSlice";
 import "styles/cartFeat.scss";
 
 const Cart = () => {
-	const { isLoading, cartItems, total, tax, amount } = useAppSelector(selectCart);
+	const { cartItems, total, tax, amount } = useAppSelector(selectCart);
 	const dispatch = useAppDispatch();
 
 	const increaseItemQty = (item: CartProductModel) => {
@@ -16,6 +23,13 @@ const Cart = () => {
 	};
 	const decreaseItemQty = (item: CartProductModel) => {
 		dispatch(decreaseCartItem(item));
+	};
+
+	const handleSizeCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
+		dispatch(changeCartItemSize({ item, value: e.target.value }));
+	};
+	const handleColorCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
+		dispatch(changeCartItemColor({ item, value: e.target.value }));
 	};
 
 	if (!amount) {
@@ -42,35 +56,31 @@ const Cart = () => {
 							<div className="item_size">
 								<p>Size:</p>
 								<div className="checkbox">
-									<SizeCheckbox
-										value="XS"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
-									<SizeCheckbox
-										value="S"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
-									<SizeCheckbox
-										value="M"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
-									<SizeCheckbox
-										value="L"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
+									{item?.prdt_size_arr.map((prdt_size) => {
+										return (
+											<SizeCheckbox
+												key={prdt_size}
+												value={prdt_size}
+												checked={prdt_size === item?.prdt_size}
+												onChange={(e) => handleSizeCheckbox(e, item)}
+											/>
+										);
+									})}
 								</div>
 							</div>
 							<div className="item_color">
 								<p>Color</p>
 								<div className="checkbox">
-									<SizeCheckbox
-										value="XS"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
-									<SizeCheckbox
-										value="S"
-										onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-									/>
+									{item?.prdt_color_arr.map((prdt_size) => {
+										return (
+											<ColorCheckbox
+												key={prdt_size}
+												value={prdt_size}
+												checked={prdt_size === item?.prdt_color}
+												onChange={(e) => handleColorCheckbox(e, item)}
+											/>
+										);
+									})}
 								</div>
 							</div>
 						</div>

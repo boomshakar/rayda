@@ -6,9 +6,9 @@ type Props = {
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SizeCheckbox = (props: Props) => {
+const ColorCheckbox = (props: Props) => {
 	return (
-		<div className="size-checkbox size">
+		<div className="size-checkbox color">
 			{/* <span></span> */}
 			<label className="container" id="color-checkbox" htmlFor="radio-g">
 				<input
@@ -21,11 +21,11 @@ const SizeCheckbox = (props: Props) => {
 					type="checkbox"
 					onChange={props.onChange}
 				/>
-				<span className="checkmark">{props.value}</span>
+				<span className="checkmark" style={{ backgroundColor: props.value }}></span>
 			</label>
 		</div>
 	);
 };
 
-export default SizeCheckbox;
+export default ColorCheckbox;
 // create custom checkbox react typescript?

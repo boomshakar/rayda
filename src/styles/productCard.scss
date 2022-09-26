@@ -2,20 +2,22 @@
 
 .prdt_card {
 	box-sizing: border-box;
-	width: 316px;
-	height: 424px;
+	// width: 316px;
+	// height: 424px;
 	margin-bottom: 3rem;
 	// margin-right: 3rem;
-	padding: 1rem 2rem;
+	// padding: 1rem 2rem;
 	flex-grow: 3;
 	display: flex;
+	position: relative;
 	align-items: center;
 	justify-content: center;
 
 	&-box {
 		box-sizing: border-box;
 		width: 100%;
-		height: 100%;
+		// height: 100%;
+		height: 390px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -33,7 +35,6 @@
 				height: 100%;
 			}
 			.add_to_cart {
-				display: none;
 				position: absolute;
 				z-index: 2;
 				bottom: -20px;
@@ -47,6 +48,9 @@
 				cursor: pointer;
 				outline: none;
 				border: none;
+				visibility: hidden;
+				opacity: 0;
+				transition: visibility 0.2s linear, opacity 0.2s linear;
 
 				img {
 					width: 20px;
@@ -57,6 +61,8 @@
 		.bottom-sect {
 			font-size: 18px;
 			line-height: 160%;
+			color: $cText;
+			text-decoration: none;
 			h4 {
 				margin: 0;
 				font-weight: 300;
@@ -70,8 +76,27 @@
 		&:hover {
 			box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
 			.add_to_cart {
-				display: flex;
+				visibility: visible;
+				opacity: 1;
 			}
+		}
+	}
+	.out_of_stock {
+		display: flex;
+		position: absolute;
+		top: 0;
+		background-color: $cWhite;
+		opacity: 0.5;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+
+		& > span {
+			font-size: 24px;
+			color: #8d8f98;
+		}
+		&.active {
 		}
 	}
 }

@@ -1,5 +1,5 @@
 import { useAppDispatch } from "hooks/redux-hooks.";
-import { CartProductModel, ProductItemModel } from "models/redux-models";
+import { ProductItemModel } from "models/redux-models";
 import React from "react";
 import { Link } from "react-router-dom";
 import { addItemToCart } from "store/cartSlice";
@@ -20,6 +20,11 @@ const ProductCard = (props: { product: ProductItemModel }) => {
 						<button className="add_to_cart" onClick={(e) => addToCartHandler(e, props.product)}>
 							<img src="/asset/Icon/white-cart-icn.svg" alt="" />
 						</button>
+						{!props.product.prdt_instock && (
+							<div className="out_of_stock">
+								<span>OUT OF STOCK</span>
+							</div>
+						)}
 					</div>
 					<div className="bottom-sect">
 						<h4>{`${props.product.prdt_title} ${props.product.prdt_subTitle}`}</h4>
@@ -27,6 +32,7 @@ const ProductCard = (props: { product: ProductItemModel }) => {
 					</div>
 				</div>
 			</Link>
+			{!props.product.prdt_instock && <div className="out_of_stock"></div>}
 		</div>
 	);
 };

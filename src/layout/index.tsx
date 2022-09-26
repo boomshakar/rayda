@@ -26,7 +26,7 @@ const Layout: React.FC = () => {
 					<div className={`nav-link ${location.pathname === routes.test && "active"}`}>
 						<Link to={routes.test}>Mens</Link>
 					</div>
-					<div className={`nav-link ${location.pathname === routes.category && "active"}`}>
+					<div className={`nav-link ${location.pathname === routes.test && "active"}`}>
 						<Link to={routes.test}>Kids</Link>
 					</div>
 				</div>
@@ -37,7 +37,7 @@ const Layout: React.FC = () => {
 					<span>$</span>
 					<span onClick={handleCartAction}>
 						<img src="/asset/Icon/cart-icon.svg" alt="cart" />
-						<span>{cartModel.amount}</span>
+						{cartModel.amount > 0 && <span>{cartModel.amount}</span>}
 					</span>
 				</div>
 			</nav>

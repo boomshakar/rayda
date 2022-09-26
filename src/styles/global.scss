@@ -9,6 +9,9 @@ h5,
 h6 {
 	margin: 0;
 }
+a {
+	text-decoration: none;
+}
 .size-checkbox {
 	position: relative;
 	display: inline-block;
@@ -55,7 +58,9 @@ h6 {
 			color: $cText;
 			border: 1px solid $cText;
 			text-align: center;
-			vertical-align: bottom;
+			line-height: 25px;
+			font-size: 12px;
+			vertical-align: middle;
 
 			&:after {
 				// content: "";
@@ -83,6 +88,19 @@ h6 {
 		}
 		& input:checked ~ .checkmark:after {
 			display: block;
+		}
+	}
+
+	&.color {
+		label {
+			.checkmark {
+				border: 1px solid $cWhite;
+			}
+			& input:checked ~ .checkmark {
+				background-color: $cWhite;
+				// color: $cWhite;
+				border: 2px solid $cPrimary;
+			}
 		}
 	}
 }
@@ -117,10 +135,13 @@ button.cust_btn {
 		outline: none;
 		background: $cWhite;
 		color: $cText;
-		border: 1px solid $cText;
+		border: none;
+		cursor: pointer;
+		padding: 0;
 
-		span {
-			font-size: 16px;
+		img {
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

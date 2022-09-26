@@ -14,6 +14,8 @@ export interface CartProductModel {
 	prdt_desc: string;
 	prdt_color: string;
 	prdt_size: string;
+	prdt_size_arr: Array<string>;
+	prdt_color_arr: Array<string>;
 	prdt_price: number;
 	prdt_qty: number;
 	prdt_imgXs: string;
@@ -34,9 +36,10 @@ export interface ProductItemModel {
 	prdt_desc: string;
 	prdt_color: string;
 	prdt_size: string;
+	prdt_size_arr: Array<string>;
+	prdt_color_arr: Array<string>;
 	prdt_price: number;
 	prdt_instock: boolean;
-	// prdt_qty: number;
 }
 
 export interface UiStateModel {

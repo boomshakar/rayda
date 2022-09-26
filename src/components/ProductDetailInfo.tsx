@@ -1,10 +1,13 @@
 import React from "react";
+import { useParams, useLocation } from "react-router-dom";
 import Button from "./buttons/Button";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
 
 type Props = {};
 
 const ProductDetailInfo = (props: Props) => {
+	// const { productId } = useParams();
+	// const products = useAppSelector
 	return (
 		<div className="product-info">
 			<div className="title">
@@ -15,18 +18,22 @@ const ProductDetailInfo = (props: Props) => {
 				<p>Size:</p>
 				<div className="checkbox">
 					<SizeCheckbox
+						checked={false}
 						value="XS"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
 					<SizeCheckbox
+						checked={true}
 						value="S"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
 					<SizeCheckbox
+						checked={false}
 						value="M"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
 					<SizeCheckbox
+						checked={false}
 						value="L"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
@@ -36,10 +43,12 @@ const ProductDetailInfo = (props: Props) => {
 				<p>Color:</p>
 				<div className="checkbox">
 					<SizeCheckbox
+						checked={false}
 						value="XS"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
 					<SizeCheckbox
+						checked={true}
 						value="S"
 						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
 					/>
