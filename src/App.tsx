@@ -7,9 +7,19 @@ import Cart from "pages/Cart";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { calculateTotal, selectCart } from "store/cartSlice";
+import { saveproducts, startFetch } from "store/productsSlice";
+import { productListConst } from "utils/produtListConst";
 function App() {
 	const dispatch = useAppDispatch();
 	const { cartItems } = useAppSelector(selectCart);
+
+	useEffect(() => {
+		dispatch(startFetch());
+		dispatch(saveproducts(productListConst));
+		return () => {};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	useEffect(() => {
 		dispatch(calculateTotal());
 		return () => {};

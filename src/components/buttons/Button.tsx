@@ -4,7 +4,7 @@ import { VoidExpression } from "typescript";
 type Props = {
 	which: "lead" | "outline";
 	value: string;
-	onClick: () => void;
+	onClick: React.MouseEventHandler<HTMLElement>;
 };
 
 const Button = (props: Props) => {

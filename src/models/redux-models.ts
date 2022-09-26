@@ -39,6 +39,7 @@ export interface ProductItemModel {
 	prdt_size_arr: Array<string>;
 	prdt_color_arr: Array<string>;
 	prdt_price: number;
+	// prdt_qty: number;
 	prdt_instock: boolean;
 }
 

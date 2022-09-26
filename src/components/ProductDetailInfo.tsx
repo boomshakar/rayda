@@ -1,71 +1,78 @@
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { selectProductList } from "store/productsSlice";
 import Button from "./buttons/Button";
+import ColorCheckbox from "./checkbox/ColorCheckbox";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
+import { addItemToCart, changeCartItemColor, changeCartItemSize } from "store/cartSlice";
+import { CartProductModel, ProductItemModel } from "models/redux-models";
 
-type Props = {};
+const ProductDetailInfo = () => {
+	const { productId } = useParams();
+	const dispatch = useAppDispatch();
+	const productList = useAppSelector(selectProductList);
+	const currentproduct = productList.find((item) => item.id === productId);
 
-const ProductDetailInfo = (props: Props) => {
-	// const { productId } = useParams();
-	// const products = useAppSelector
+	const handleSizeCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
+		dispatch(changeCartItemSize({ item, value: e.target.value }));
+	};
+	const handleColorCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
+		dispatch(changeCartItemColor({ item, value: e.target.value }));
+	};
+	const addToCartHandler = (item: ProductItemModel) => {
+		dispatch(addItemToCart(item));
+	};
+
 	return (
 		<div className="product-info">
 			<div className="title">
-				<h1>Apollo</h1>
-				<h1>Running Short</h1>
+				<h1>{currentproduct?.prdt_title}</h1>
+				<h1>{currentproduct?.prdt_subTitle}</h1>
 			</div>
 			<div className="product_size">
 				<p>Size:</p>
 				<div className="checkbox">
-					<SizeCheckbox
-						checked={false}
-						value="XS"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
-					<SizeCheckbox
-						checked={true}
-						value="S"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
-					<SizeCheckbox
-						checked={false}
-						value="M"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
-					<SizeCheckbox
-						checked={false}
-						value="L"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
+					{currentproduct?.prdt_size_arr.map((prdt_size) => {
+						return (
+							<SizeCheckbox
+								key={prdt_size}
+								value={prdt_size}
+								checked={prdt_size === currentproduct?.prdt_size}
+								onChange={(e) => handleSizeCheckbox(e, { ...currentproduct, prdt_qty: 1 })}
+							/>
+						);
+					})}
 				</div>
 			</div>
 			<div className="product_color">
 				<p>Color:</p>
 				<div className="checkbox">
-					<SizeCheckbox
-						checked={false}
-						value="XS"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
-					<SizeCheckbox
-						checked={true}
-						value="S"
-						onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log({ e: e.target.value })}
-					/>
+					{currentproduct?.prdt_color_arr.map((prdt_size) => {
+						return (
+							<ColorCheckbox
+								key={prdt_size}
+								value={prdt_size}
+								checked={prdt_size === currentproduct?.prdt_color}
+								onChange={(e) => handleColorCheckbox(e, { ...currentproduct, prdt_qty: 1 })}
+							/>
+						);
+					})}
 				</div>
 			</div>
 			<div className="product_price">
 				<p>PRICE:</p>
-				<p>$50.00</p>
+				<p>${currentproduct?.prdt_price}</p>
 			</div>
 			<div className="product_cta">
-				<Button onClick={() => {}} value="ADD TO CART" which="lead" />
+				<Button
+					onClick={() => (currentproduct ? addToCartHandler(currentproduct) : null)}
+					value="ADD TO CART"
+					which="lead"
+				/>
 			</div>
 			<div className="product_details">
-				<p>
-					Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and
-					party dresses from all your favorite brands.
-				</p>
+				<p>{currentproduct?.prdt_desc}</p>
 			</div>
 		</div>
 	);

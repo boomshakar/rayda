@@ -78,7 +78,7 @@ export const cartSlice = createSlice({
 		},
 		changeCartItemColor: (state, action) => {
 			const { payload } = action;
-			const cartItem = state.cartItems.find((item) => item.id === payload.item.id);
+			const cartItem = state.cartItems.find((item) => item.id === payload?.item.id);
 			if (cartItem) {
 				cartItem.prdt_color = payload.value;
 			}
