@@ -41,7 +41,7 @@ function App() {
 		const options = {
 			method: "GET",
 			headers: {
-				"X-RapidAPI-Key": "f3666f333cmsh302b5634d41171bp1f5ceajsn7e396f7db55c",
+				"X-RapidAPI-Key": `${process.env.RAPID_API_KEY}`,
 				"X-RapidAPI-Host": "currency-converter5.p.rapidapi.com",
 			},
 		};

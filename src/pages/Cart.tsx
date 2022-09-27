@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import Button from "components/buttons/Button";
+import React from "react";
 import CounterButton from "components/buttons/CounterButton";
 import ColorCheckbox from "components/checkbox/ColorCheckbox";
 import SizeCheckbox from "components/checkbox/SizeCheckbox";
 import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { CartProductModel } from "models/redux-models";
-import { PaystackButton, usePaystackPayment } from "react-paystack";
 import {
 	changeCartItemColor,
 	changeCartItemSize,
@@ -14,8 +12,6 @@ import {
 	selectCart,
 } from "store/cartSlice";
 import "styles/cartFeat.scss";
-import { on } from "events";
-import { PaystackProps } from "react-paystack/dist/types";
 import PaymentButton from "components/buttons/PaymentButton";
 import { selectUiState } from "store/uiSlice";
 
@@ -55,26 +51,6 @@ const Cart = () => {
 	};
 	const handleColorCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
 		dispatch(changeCartItemColor({ item, value: e.target.value }));
-	};
-
-	const config: PaystackProps = {
-		reference: new Date().getTime().toString(),
-		email: "user@example.com",
-		amount: 20000,
-		publicKey: "pk_test_7ad4118026dde176163b79afb1aed42811acbbda",
-		firstname: "cool",
-		lastname: "story",
-		// currency: "USD",
-	};
-	const initializePayment = usePaystackPayment(config);
-	const onSuccess = (reference: void) => {
-		// Implementation for whatever you want to do with reference and after success call.
-		console.log(reference);
-	};
-
-	const onClose = () => {
-		// implementation for  whatever you want to do when the Paystack dialog closed.
-		console.log("closed");
 	};
 
 	if (!amount) {

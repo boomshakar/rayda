@@ -1,5 +1,5 @@
 import ProductDetailInfo from "components/ProductDetailInfo";
-import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
+import { useAppSelector } from "hooks/redux-hooks.";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { selectProductList } from "store/productsSlice";
