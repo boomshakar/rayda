@@ -14,10 +14,6 @@ const CurrencyDropdown = () => {
 	const toggleDropdown = () => dispatch(toggleCurrDrawer());
 
 	const handleItemClick = async (data: CurrencyModel) => {
-		//  getXchangeRate({ from: currency_val, to: data }).then((res)=>console.log(res));
-		// console.log({ response });
-		// console.log({ resp: response});
-
 		const options = {
 			method: "GET",
 			headers: {
@@ -65,7 +61,6 @@ const CurrencyDropdown = () => {
 			<div className={`dropdown-body ${currencyDrawer && "open"}`}>
 				{currency_arr.map((item) => (
 					<div key={item} className="dropdown-item" onClick={(e) => handleItemClick(item)}>
-						<span className={`dropdown-item-dot ${item == currency_val && "selected"}`}></span>
 						{item === "USD" ? "$" : item === "EUR" ? "€" : item === "JPY" && "¥"}&nbsp;
 						{item}
 					</div>

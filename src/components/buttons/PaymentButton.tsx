@@ -8,20 +8,16 @@ import Button from "./Button";
 type Props = {
 	btnText: string;
 	amount: number;
+	onClick?: () => void;
 };
 
-const PaymentButton = (props: Props) => {
+const PaymentButton = ({ amount, btnText, onClick = () => {} }: Props) => {
 	const { ngn_xchg_rate } = useAppSelector(selectUiState);
 
 	const fetchNewAmountXchg = () => {
-		// const newAmountRate = total * ngn_xchg_rate;
-		// const amountInKobo = Number(newAmountRate.toFixed(2)) * 100;
-		console.log({ ngn_xchg_rate });
 		const amountInKobo: number = Number(Number(ngn_xchg_rate).toFixed(2)) * 100;
 		return amountInKobo;
 	};
-
-	console.log({ h: fetchNewAmountXchg() });
 
 	const config: PaystackProps = {
 		reference: new Date().getTime().toString(),
@@ -42,8 +38,12 @@ const PaymentButton = (props: Props) => {
 		// implementation for  whatever you want to do when the Paystack dialog closed.
 		console.log("closed");
 	};
+	const makePayment = () => {
+		onClick();
+		amount && initializePayment(onSuccess, onClose);
+	};
 
-	return <Button value={props.btnText} which="lead" onClick={() => initializePayment(onSuccess, onClose)} />;
+	return <Button value={btnText} which="lead" onClick={makePayment} />;
 };
 
 export default PaymentButton;

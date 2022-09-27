@@ -9,7 +9,6 @@ import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { calculateTotal, selectCart } from "store/cartSlice";
 import { saveproducts, startFetch } from "store/productsSlice";
 import { productListConst } from "utils/produtListConst";
-import { getXchangeRate } from "service/getXchangeRate";
 import { selectUiState, updateNgnRate } from "store/uiSlice";
 function App() {
 	const dispatch = useAppDispatch();
@@ -41,7 +40,7 @@ function App() {
 		const options = {
 			method: "GET",
 			headers: {
-				"X-RapidAPI-Key": "f3666f333cmsh302b5634d41171bp1f5ceajsn7e396f7db55c",
+				"X-RapidAPI-Key": `${process.env.RAPID_API_KEY}`,
 				"X-RapidAPI-Host": "currency-converter5.p.rapidapi.com",
 			},
 		};
