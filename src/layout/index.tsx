@@ -27,8 +27,8 @@ const Layout: React.FC = () => {
 					<div className={`nav-link ${location.pathname === routes.test && "active"}`}>
 						<Link to={routes.test}>Mens</Link>
 					</div>
-					<div className={`nav-link ${location.pathname === routes.test && "active"}`}>
-						<Link to={routes.test}>Kids</Link>
+					<div className={`nav-link ${location.pathname === routes.test2 && "active"}`}>
+						<Link to={routes.test2}>Kids</Link>
 					</div>
 				</div>
 				<div className="logo-contain">

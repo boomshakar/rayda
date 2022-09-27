@@ -65,6 +65,7 @@ function App() {
 						<Route path={routes.cart} element={<Cart />} />
 						<Route path={routes.productDt} element={<ProductDetail />} />
 						<Route path={routes.category} element={<Category />} />
+						<Route path={"*"} element={<div>Page Not Found</div>} />
 					</Route>
 				</Routes>
 			</Router>
