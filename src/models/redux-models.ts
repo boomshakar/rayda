@@ -43,6 +43,10 @@ export interface ProductItemModel {
 	prdt_instock: boolean;
 }
 
+export type CurrencyModel = "USD" | "EUR" | "JPY";
 export interface UiStateModel {
 	cartDrawer: boolean;
+	currencyDrawer: boolean;
+	currency_val: CurrencyModel;
+	currency_arr: CurrencyModel[];
 }

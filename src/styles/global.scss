@@ -145,3 +145,61 @@ button.cust_btn {
 		}
 	}
 }
+.dropdown {
+	width: 90px;
+	border-radius: 10px;
+	background-color: transparent;
+
+	.dropdown-header {
+		padding: 0 17px;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: fit-content;
+		line-height: 22px;
+
+		.icon {
+			font-size: 13px;
+			color: #91a5be;
+			transform: rotate(0deg);
+			transition: all 0.2s ease-in-out;
+		}
+
+		.icon.open {
+			transform: rotate(90deg);
+		}
+	}
+
+	.dropdown-body {
+		background-color: white;
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+		padding: 0;
+		// border-top: 1px solid #e5e8ec;
+		display: none;
+		margin-top: 10px;
+
+		&.open {
+			display: block;
+		}
+	}
+
+	.dropdown-item {
+		padding: 7px 0px;
+
+		&:hover {
+			cursor: pointer;
+			background: #eeeeee;
+		}
+	}
+
+	&-dot {
+		opacity: 0;
+		color: #91a5be;
+		transition: all 0.2s ease-in-out;
+
+		&.selected {
+			opacity: 1;
+		}
+	}
+}

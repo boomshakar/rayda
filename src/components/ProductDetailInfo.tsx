@@ -7,12 +7,33 @@ import ColorCheckbox from "./checkbox/ColorCheckbox";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
 import { addItemToCart, changeCartItemColor, changeCartItemSize } from "store/cartSlice";
 import { CartProductModel, ProductItemModel } from "models/redux-models";
+import { selectUiState } from "store/uiSlice";
 
 const ProductDetailInfo = () => {
 	const { productId } = useParams();
 	const dispatch = useAppDispatch();
 	const productList = useAppSelector(selectProductList);
 	const currentproduct = productList.find((item) => item.id === productId);
+
+	const { currency_val } = useAppSelector(selectUiState);
+
+	let currencyIcon: string;
+
+	switch (currency_val) {
+		case "USD":
+			currencyIcon = "$";
+			break;
+		case "EUR":
+			currencyIcon = "€";
+			break;
+		case "JPY":
+			currencyIcon = "¥";
+			break;
+
+		default:
+			currencyIcon = "$";
+			break;
+	}
 
 	const handleSizeCheckbox = (e: React.ChangeEvent<HTMLInputElement>, item: CartProductModel) => {
 		dispatch(changeCartItemSize({ item, value: e.target.value }));
@@ -62,7 +83,10 @@ const ProductDetailInfo = () => {
 			</div>
 			<div className="product_price">
 				<p>PRICE:</p>
-				<p>${currentproduct?.prdt_price}</p>
+				<p>
+					{currencyIcon}
+					{currentproduct?.prdt_price}
+				</p>
 			</div>
 			<div className="product_cta">
 				<Button

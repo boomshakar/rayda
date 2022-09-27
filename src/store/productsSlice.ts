@@ -19,10 +19,18 @@ export const productSlice = createSlice({
 			state.list = payload;
 			state.isLoading = false;
 		},
+		updateProductCurrency: (state, action) => {
+			const { payload } = action;
+			state.list.forEach((prdt_item) => {
+				prdt_item.prdt_price = prdt_item.prdt_price * Number(payload);
+			});
+
+			return state;
+		},
 	},
 });
 
-export const { startFetch, saveproducts } = productSlice.actions;
+export const { startFetch, saveproducts, updateProductCurrency } = productSlice.actions;
 export const selectProductList = (state: RootState) => state.products.list;
 export const selectIsProductListLoading = (state: RootState) => state.products.isLoading;
 

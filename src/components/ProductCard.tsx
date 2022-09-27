@@ -1,12 +1,34 @@
-import { useAppDispatch } from "hooks/redux-hooks.";
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { ProductItemModel } from "models/redux-models";
 import React from "react";
 import { Link } from "react-router-dom";
 import { addItemToCart } from "store/cartSlice";
+import { selectUiState } from "store/uiSlice";
 import "styles/productCard.scss";
 
 const ProductCard = (props: { product: ProductItemModel }) => {
 	const dispatch = useAppDispatch();
+
+	const { currency_val } = useAppSelector(selectUiState);
+
+	let currencyIcon: string;
+
+	switch (currency_val) {
+		case "USD":
+			currencyIcon = "$";
+			break;
+		case "EUR":
+			currencyIcon = "€";
+			break;
+		case "JPY":
+			currencyIcon = "¥";
+			break;
+
+		default:
+			currencyIcon = "$";
+			break;
+	}
+
 	const addToCartHandler = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>, item: ProductItemModel) => {
 		_.preventDefault();
 		dispatch(addItemToCart(item));
@@ -28,7 +50,10 @@ const ProductCard = (props: { product: ProductItemModel }) => {
 					</div>
 					<div className="bottom-sect">
 						<h4>{`${props.product.prdt_title} ${props.product.prdt_subTitle}`}</h4>
-						<p>${props.product.prdt_price.toFixed(2)}</p>
+						<p>
+							{currencyIcon}
+							{props.product.prdt_price.toFixed(2)}
+						</p>
 					</div>
 				</div>
 			</Link>

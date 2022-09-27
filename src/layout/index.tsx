@@ -6,6 +6,7 @@ import CartPopUp from "components/CartPopUp";
 import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import { toggle } from "store/uiSlice";
 import { selectCart } from "store/cartSlice";
+import CurrencyDropdown from "components/select/CurrencyDropdown";
 
 const Layout: React.FC = () => {
 	const location = useLocation();
@@ -34,7 +35,8 @@ const Layout: React.FC = () => {
 					<img src="/asset/rayda-logo.svg" alt="rayda-logo" />
 				</div>
 				<div className="nav_end-action">
-					<span>$</span>
+					{/* <span>$</span> */}
+					<CurrencyDropdown />
 					<span onClick={handleCartAction}>
 						<img src="/asset/Icon/cart-icon.svg" alt="cart" />
 						{cartModel.amount > 0 && <span>{cartModel.amount}</span>}

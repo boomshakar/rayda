@@ -10,7 +10,7 @@ import {
 	removeCartItem,
 	selectCart,
 } from "store/cartSlice";
-import { selectCartDrawer, toggle } from "store/uiSlice";
+import { selectCartDrawer, selectUiState, toggle } from "store/uiSlice";
 import "styles/cartFeat.scss";
 import Button from "./buttons/Button";
 import CounterButton from "./buttons/CounterButton";
@@ -22,6 +22,26 @@ const CartPopUp = () => {
 	const dispatch = useAppDispatch();
 	const cartDrawerVisibility = useAppSelector(selectCartDrawer);
 	const { cartItems, total, amount } = useAppSelector(selectCart);
+
+	const { currency_val } = useAppSelector(selectUiState);
+
+	let currencyIcon: string;
+
+	switch (currency_val) {
+		case "USD":
+			currencyIcon = "$";
+			break;
+		case "EUR":
+			currencyIcon = "€";
+			break;
+		case "JPY":
+			currencyIcon = "¥";
+			break;
+
+		default:
+			currencyIcon = "$";
+			break;
+	}
 
 	const handleViewBag = () => {
 		navigate("/cart");
@@ -63,7 +83,10 @@ const CartPopUp = () => {
 								<div className="item_info">
 									<div className="item_spec">
 										<div className="item_title">{`${item.prdt_title} ${item.prdt_subTitle}`}</div>
-										<div className="item_price">${item.prdt_price.toFixed(2)}</div>
+										<div className="item_price">
+											{currencyIcon}
+											{item.prdt_price.toFixed(2)}
+										</div>
 										<div className="item_size">
 											<p>Size:</p>
 											<div className="checkbox">
@@ -111,7 +134,10 @@ const CartPopUp = () => {
 				<div className="total_cta">
 					<div className="total">
 						<span>Total</span>
-						<span>${total.toFixed(2)}</span>
+						<span>
+							{currencyIcon}
+							{total.toFixed(2)}
+						</span>
 					</div>
 					<div className="cta">
 						<Button onClick={handleViewBag} value="VIEW BAG" which="outline" />
