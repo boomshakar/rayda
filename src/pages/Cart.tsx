@@ -75,8 +75,8 @@ const Cart = () => {
 							<h2 className="item_title">{item.prdt_title}</h2>
 							<h2 className="item_subtitle">{item.prdt_subTitle}</h2>
 							<h3 className="item_price">
-								{currencyIcon.toFixed(2)}
-								{item.prdt_price}
+								{currencyIcon}
+								{item.prdt_price.toFixed(2)}
 							</h3>
 							<div className="item_size">
 								<p>Size:</p>
