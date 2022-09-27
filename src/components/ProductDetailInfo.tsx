@@ -85,7 +85,7 @@ const ProductDetailInfo = () => {
 				<p>PRICE:</p>
 				<p>
 					{currencyIcon}
-					{currentproduct?.prdt_price}
+					{currentproduct?.prdt_price.toFixed(2)}
 				</p>
 			</div>
 			<div className="product_cta">

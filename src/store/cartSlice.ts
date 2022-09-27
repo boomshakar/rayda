@@ -83,6 +83,14 @@ export const cartSlice = createSlice({
 				cartItem.prdt_color = payload.value;
 			}
 		},
+		updateCarttCurrency: (state, action) => {
+			const { payload } = action;
+			state.cartItems.forEach((prdt_item) => {
+				prdt_item.prdt_price = prdt_item.prdt_price * Number(payload);
+			});
+
+			return state;
+		},
 	},
 });
 
@@ -95,6 +103,7 @@ export const {
 	removeCartItem,
 	changeCartItemSize,
 	changeCartItemColor,
+	updateCarttCurrency,
 } = cartSlice.actions;
 
 export const selectCart = (state: RootState) => state.cart;

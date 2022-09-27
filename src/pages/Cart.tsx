@@ -16,10 +16,32 @@ import {
 import "styles/cartFeat.scss";
 import { on } from "events";
 import { PaystackProps } from "react-paystack/dist/types";
+import PaymentButton from "components/buttons/PaymentButton";
+import { selectUiState } from "store/uiSlice";
 
 const Cart = () => {
 	const { cartItems, total, tax, amount } = useAppSelector(selectCart);
 	const dispatch = useAppDispatch();
+
+	const { currency_val } = useAppSelector(selectUiState);
+
+	let currencyIcon: string;
+
+	switch (currency_val) {
+		case "USD":
+			currencyIcon = "$";
+			break;
+		case "EUR":
+			currencyIcon = "€";
+			break;
+		case "JPY":
+			currencyIcon = "¥";
+			break;
+
+		default:
+			currencyIcon = "$";
+			break;
+	}
 
 	const increaseItemQty = (item: CartProductModel) => {
 		dispatch(increaseCartItem(item));
@@ -75,7 +97,10 @@ const Cart = () => {
 						<div className="item_spec">
 							<h2 className="item_title">{item.prdt_title}</h2>
 							<h2 className="item_subtitle">{item.prdt_subTitle}</h2>
-							<h3 className="item_price">${item.prdt_price}</h3>
+							<h3 className="item_price">
+								{currencyIcon}
+								{item.prdt_price}
+							</h3>
 							<div className="item_size">
 								<p>Size:</p>
 								<div className="checkbox">
@@ -115,7 +140,7 @@ const Cart = () => {
 							<CounterButton which="sub" onClick={() => decreaseItemQty(item)} />
 						</div>
 						<div className="item_img">
-							<img src="/asset/products/grey-top.png" alt="" />
+							<img src={item.prdt_img} alt="" />
 						</div>
 					</div>
 				</div>
@@ -123,7 +148,10 @@ const Cart = () => {
 			<div className="total_cta">
 				<div>
 					<p>Tax 21%:&nbsp; </p>
-					<p>${tax.toFixed(2)}</p>
+					<p>
+						{currencyIcon}
+						{tax.toFixed(2)}
+					</p>
 				</div>
 				<div>
 					<p>Quantity:&nbsp; </p>
@@ -131,9 +159,12 @@ const Cart = () => {
 				</div>
 				<div>
 					<p>Total:&nbsp; </p>
-					<p>${total.toFixed(2)}</p>
+					<p>
+						{currencyIcon}
+						{total.toFixed(2)}
+					</p>
 				</div>
-				<Button value="ORDER" which="lead" onClick={() => initializePayment(onSuccess, onClose)} />
+				<PaymentButton btnText="ORDER" amount={Number(total.toFixed(2))} />
 			</div>
 		</div>
 	);

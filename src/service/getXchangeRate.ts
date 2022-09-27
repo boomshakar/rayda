@@ -2,7 +2,7 @@ interface Call {
 	from: string;
 	to: string;
 }
-export const getXchangeRate = (data: Call) => {
+export const getXchangeRate = (currency_val: string) => {
 	const options = {
 		method: "GET",
 		headers: {
@@ -11,13 +11,13 @@ export const getXchangeRate = (data: Call) => {
 		},
 	};
 	fetch(
-		`https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=${data.from}&to=${data.to}&amount=1`,
+		`https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=${currency_val}&to=NGN&amount=1`,
 		options
 	)
 		.then((response) => response.json())
 		.then((response) => {
-			console.log({ gh: response });
-			return response;
+			const xchangeRate = response?.rates["NGN"]?.rate;
+			return xchangeRate;
 		})
 		.catch((err) => console.error(err));
 };

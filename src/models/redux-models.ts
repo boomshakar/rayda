@@ -47,6 +47,7 @@ export type CurrencyModel = "USD" | "EUR" | "JPY";
 export interface UiStateModel {
 	cartDrawer: boolean;
 	currencyDrawer: boolean;
+	ngn_xchg_rate: number;
 	currency_val: CurrencyModel;
 	currency_arr: CurrencyModel[];
 }

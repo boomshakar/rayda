@@ -3,13 +3,13 @@ import { CurrencyModel } from "models/redux-models";
 import React from "react";
 import { getXchangeRate } from "service/getXchangeRate";
 import { useGetCurrencyRateQuery } from "store/apiSlice";
+import { updateCarttCurrency } from "store/cartSlice";
 import { updateProductCurrency } from "store/productsSlice";
 import { changeCurrencyVal, selectUiState, toggleCurrDrawer } from "store/uiSlice";
 
 const CurrencyDropdown = () => {
 	const dispatch = useAppDispatch();
 	const { currencyDrawer, currency_arr, currency_val } = useAppSelector(selectUiState);
-	const xchangeRate = useGetCurrencyRateQuery;
 
 	const toggleDropdown = () => dispatch(toggleCurrDrawer());
 
@@ -32,6 +32,7 @@ const CurrencyDropdown = () => {
 			.then((response) => response.json())
 			.then((response) => {
 				dispatch(updateProductCurrency(response?.rates[data]?.rate));
+				dispatch(updateCarttCurrency(response?.rates[data]?.rate));
 				dispatch(changeCurrencyVal(data));
 				dispatch(toggleCurrDrawer());
 			})

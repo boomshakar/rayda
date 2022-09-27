@@ -14,6 +14,7 @@ import { selectCartDrawer, selectUiState, toggle } from "store/uiSlice";
 import "styles/cartFeat.scss";
 import Button from "./buttons/Button";
 import CounterButton from "./buttons/CounterButton";
+import PaymentButton from "./buttons/PaymentButton";
 import ColorCheckbox from "./checkbox/ColorCheckbox";
 import SizeCheckbox from "./checkbox/SizeCheckbox";
 
@@ -141,7 +142,7 @@ const CartPopUp = () => {
 					</div>
 					<div className="cta">
 						<Button onClick={handleViewBag} value="VIEW BAG" which="outline" />
-						<Button onClick={() => {}} value="CHECK OUT" which="lead" />
+						<PaymentButton btnText="CHECK OUT" amount={Number(total.toFixed(2))} />
 					</div>
 				</div>
 			</div>
