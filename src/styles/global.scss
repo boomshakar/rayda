@@ -158,17 +158,7 @@ button.cust_btn {
 		align-items: center;
 		width: fit-content;
 		line-height: 22px;
-
-		.icon {
-			font-size: 13px;
-			color: #91a5be;
-			transform: rotate(0deg);
-			transition: all 0.2s ease-in-out;
-		}
-
-		.icon.open {
-			transform: rotate(90deg);
-		}
+		font-weight: 600;
 	}
 
 	.dropdown-body {
@@ -185,21 +175,13 @@ button.cust_btn {
 	}
 
 	.dropdown-item {
-		padding: 7px 0px;
+		padding: 11px 0;
+		padding-left: 17px;
+		font-weight: 600;
 
 		&:hover {
 			cursor: pointer;
 			background: #eeeeee;
-		}
-	}
-
-	&-dot {
-		opacity: 0;
-		color: #91a5be;
-		transition: all 0.2s ease-in-out;
-
-		&.selected {
-			opacity: 1;
 		}
 	}
 }
