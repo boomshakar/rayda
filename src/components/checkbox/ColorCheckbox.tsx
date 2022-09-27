@@ -6,16 +6,26 @@ type Props = {
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const ColorCheckbox = ({ value, checked, onChange = () => {} }: Props) => {
+const ColorCheckbox = (props: Props) => {
 	return (
 		<div className="size-checkbox color">
 			{/* <span></span> */}
 			<label className="container" id="color-checkbox" htmlFor="radio-g">
-				<input checked={checked} name="color" value={value} id={value} type="checkbox" onChange={onChange} />
-				<span className="checkmark" style={{ backgroundColor: value }}></span>
+				<input
+					// defaultChecked={props.checked}
+					checked={props.checked}
+					name="color"
+					// defaultValue={props.value}
+					value={props?.value}
+					id={props?.value}
+					type="checkbox"
+					onChange={props.onChange}
+				/>
+				<span className="checkmark" style={{ backgroundColor: props.value }}></span>
 			</label>
 		</div>
 	);
 };
 
 export default ColorCheckbox;
+// create custom checkbox react typescript?

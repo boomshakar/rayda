@@ -5,10 +5,10 @@ type Props = {
 	onClick: () => void;
 };
 
-const CounterButton = ({ which, onClick = () => {} }: Props) => {
+const CounterButton = (props: Props) => {
 	return (
-		<button className={`cust_btn_couter`} onClick={onClick}>
-			{which === "add" ? (
+		<button className={`cust_btn_couter`} onClick={props.onClick}>
+			{props.which === "add" ? (
 				<img src="/asset/Icon/plus-icon.svg" alt="" />
 			) : (
 				<img src="/asset/Icon/minus-icon.svg" alt="" />

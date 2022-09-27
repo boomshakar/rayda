@@ -48,9 +48,6 @@ const CartPopUp = () => {
 		navigate("/cart");
 		dispatch(toggle());
 	};
-	const handlePaymentBtn = () => {
-		dispatch(toggle());
-	};
 
 	const increaseItemQty = (item: CartProductModel) => {
 		dispatch(increaseCartItem(item));
@@ -145,7 +142,7 @@ const CartPopUp = () => {
 					</div>
 					<div className="cta">
 						<Button onClick={handleViewBag} value="VIEW BAG" which="outline" />
-						<PaymentButton btnText="CHECK OUT" amount={Number(total.toFixed(2))} onClick={handlePaymentBtn} />
+						<PaymentButton btnText="CHECK OUT" amount={Number(total.toFixed(2))} />
 					</div>
 				</div>
 			</div>
