@@ -146,7 +146,7 @@ button.cust_btn {
 	}
 }
 .dropdown {
-	width: 90px;
+	width: 100px;
 	border-radius: 10px;
 	background-color: transparent;
 
@@ -155,10 +155,17 @@ button.cust_btn {
 		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		// align-items: center;
 		width: fit-content;
 		line-height: 22px;
 		font-weight: 600;
+		vertical-align: baseline;
+		span {
+			margin-right: 5px;
+		}
+		img {
+			margin-top: 5px;
+		}
 	}
 
 	.dropdown-body {
@@ -183,5 +190,21 @@ button.cust_btn {
 			cursor: pointer;
 			background: #eeeeee;
 		}
+	}
+}
+button.cust_btn_img_slide {
+	background: rgba(0, 0, 0, 0.73);
+	outline: none;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	box-sizing: border-box;
+	width: 24px;
+	height: 24px;
+	padding: 6px 8px;
+
+	img {
+		width: 100%;
+		height: 100%;
 	}
 }

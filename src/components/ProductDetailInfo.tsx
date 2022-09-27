@@ -52,7 +52,7 @@ const ProductDetailInfo = () => {
 				<h1>{currentproduct?.prdt_subTitle}</h1>
 			</div>
 			<div className="product_size">
-				<p>Size:</p>
+				<p>SIZE:</p>
 				<div className="checkbox">
 					{currentproduct?.prdt_size_arr.map((prdt_size) => {
 						return (
@@ -67,7 +67,7 @@ const ProductDetailInfo = () => {
 				</div>
 			</div>
 			<div className="product_color">
-				<p>Color:</p>
+				<p>COLOR:</p>
 				<div className="checkbox">
 					{currentproduct?.prdt_color_arr.map((prdt_size) => {
 						return (

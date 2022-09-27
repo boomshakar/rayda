@@ -14,6 +14,7 @@ import {
 import "styles/cartFeat.scss";
 import PaymentButton from "components/buttons/PaymentButton";
 import { selectUiState } from "store/uiSlice";
+import ImageSlideButton from "components/buttons/ImageSlideButton";
 
 const Cart = () => {
 	const { cartItems, total, tax, amount } = useAppSelector(selectCart);
@@ -117,6 +118,10 @@ const Cart = () => {
 						</div>
 						<div className="item_img">
 							<img src={item.prdt_img} alt="" />
+							<div className="img_slide_ctrl">
+								<ImageSlideButton which="prev" />
+								<ImageSlideButton which="next" />
+							</div>
 						</div>
 					</div>
 				</div>

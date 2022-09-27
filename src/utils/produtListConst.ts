@@ -19,8 +19,8 @@ export const productListConst = [
 	{
 		id: "JOIGUFI3493FDF",
 		prdt_img: "/asset/products/peach-sleeve.png",
-		prdt_imgXs: "/asset/products/grey-top-xs.png",
-		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_imgXs: "/asset/products/peach-sleeve.png",
+		prdt_imgXl: "/asset/products/peach-sleeve.png",
 		prdt_title: "Apollo",
 		prdt_subTitle: "Running Short",
 		prdt_desc:
@@ -36,8 +36,8 @@ export const productListConst = [
 	{
 		id: "BUYW3487GUDSDSF",
 		prdt_img: "/asset/products/stripe-sleeve.png",
-		prdt_imgXs: "/asset/products/grey-top-xs.png",
-		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_imgXs: "/asset/products/stripe-sleeve.png",
+		prdt_imgXl: "/asset/products/stripe-sleeve.png",
 		prdt_title: "Apollo",
 		prdt_subTitle: "Running Short",
 		prdt_desc:
@@ -52,8 +52,8 @@ export const productListConst = [
 	{
 		id: "634VUSD78E3SDSF",
 		prdt_img: "/asset/products/creme-bag.png",
-		prdt_imgXs: "/asset/products/grey-top-xs.png",
-		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_imgXs: "/asset/products/creme-bag.png",
+		prdt_imgXl: "/asset/products/creme-bag.png",
 		prdt_title: "Apollo",
 		prdt_subTitle: "Running Short",
 		prdt_desc:
@@ -86,8 +86,8 @@ export const productListConst = [
 	{
 		id: "RE4342JHSD989DSQW",
 		prdt_img: "/asset/products/stripe-sleeve.png",
-		prdt_imgXs: "/asset/products/grey-top-xs.png",
-		prdt_imgXl: "/asset/products/grey-top-xl.png",
+		prdt_imgXs: "/asset/products/stripe-sleeve.png",
+		prdt_imgXl: "/asset/products/stripe-sleeve.png",
 		prdt_title: "Apollo",
 		prdt_subTitle: "Running Short",
 		prdt_desc:
@@ -97,6 +97,23 @@ export const productListConst = [
 		prdt_size: "XS",
 		prdt_size_arr: ["XS", "S", "M", "L"],
 		prdt_price: 50,
+		prdt_instock: true,
+		// prdt_qty: 1,
+	},
+	{
+		id: "RE434873DOHF9DSQW",
+		prdt_img: "/asset/products/jupiter.png",
+		prdt_imgXs: "/asset/products/jupiter.png",
+		prdt_imgXl: "/asset/products/jupiter.png",
+		prdt_title: "Jupiter",
+		prdt_subTitle: "Wayfarer",
+		prdt_desc:
+			"Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+		prdt_color: "#1D1F22",
+		prdt_color_arr: ["#1D1F22", "#15A4C3", "#EA8120"],
+		prdt_size: "M",
+		prdt_size_arr: ["S", "M"],
+		prdt_price: 75,
 		prdt_instock: true,
 		// prdt_qty: 1,
 	},

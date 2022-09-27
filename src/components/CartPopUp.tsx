@@ -73,7 +73,7 @@ const CartPopUp = () => {
 			<div className="cart_items">
 				<div>
 					<div className="item_title">
-						<span>My Bag &nbsp;</span>
+						<span>My Bag, &nbsp;</span>
 						<span>{amount} items</span>
 					</div>
 					{!amount ? (
@@ -106,7 +106,7 @@ const CartPopUp = () => {
 											</div>
 										</div>
 										<div className="item_color">
-											<p>Color</p>
+											<p>Color:</p>
 											<div className="checkbox">
 												{item?.prdt_color_arr.map((prdt_size) => {
 													return (

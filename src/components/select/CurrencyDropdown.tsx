@@ -54,7 +54,8 @@ const CurrencyDropdown = () => {
 	return (
 		<div className="dropdown">
 			<div className="dropdown-header" onClick={toggleDropdown}>
-				{currencyIcon}
+				<span>{currencyIcon}</span>
+				<img src={currencyDrawer ? "/asset/Icon/arrow-up-icon.svg" : "/asset/Icon/arrow-down-icon.svg"} alt="" />
 			</div>
 			<div className={`dropdown-body ${currencyDrawer && "open"}`}>
 				{currency_arr.map((item) => (

@@ -16,18 +16,18 @@ const ProductDetail = () => {
 				<div className="img-contain">
 					<div className="img_preview_slide_container">
 						<div className="img_preview">
-							<img src="/asset/products/grey-top-xs.png" alt="" />
+							<img src={currentproduct?.prdt_imgXs} alt="" />
 						</div>
 						<div className="img_preview">
-							<img src="/asset/products/grey-top-xs.png" alt="" />
+							<img src={currentproduct?.prdt_imgXs} alt="" />
 						</div>
 						<div className="img_preview">
-							<img src="/asset/products/grey-top-xs.png" alt="" />
+							<img src={currentproduct?.prdt_imgXs} alt="" />
 						</div>
 					</div>
 					<div className="img_view_container">
-						<img src="/asset/products/grey-top-xl.png" alt="" />
-						{/* <img src={currentproduct?.prdt_img} alt="" /> */}
+						{/* <img src="/asset/products/grey-top-xl.png" alt="" /> */}
+						<img src={currentproduct?.prdt_imgXl} alt="" />
 					</div>
 				</div>
 
