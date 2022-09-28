@@ -1,7 +1,8 @@
-import { useAppSelector } from "hooks/redux-hooks.";
+import { useAppDispatch, useAppSelector } from "hooks/redux-hooks.";
 import React from "react";
 import { usePaystackPayment } from "react-paystack";
 import { PaystackProps } from "react-paystack/dist/types";
+import { clearCartItems } from "store/cartSlice";
 import { selectUiState } from "store/uiSlice";
 import Button from "./Button";
 
@@ -13,6 +14,8 @@ type Props = {
 
 const PaymentButton = ({ btnText, amount, onClick = () => {} }: Props) => {
 	const { ngn_xchg_rate } = useAppSelector(selectUiState);
+
+	const dispatch = useAppDispatch();
 
 	const fetchNewAmountXchg = () => {
 		const amountInKobo: number = Number(Number(ngn_xchg_rate).toFixed(2)) * 100;
@@ -32,6 +35,7 @@ const PaymentButton = ({ btnText, amount, onClick = () => {} }: Props) => {
 	const onSuccess = (reference: void) => {
 		// Implementation for whatever you want to do with reference and after success call.
 		console.log(reference);
+		dispatch(clearCartItems());
 	};
 
 	const onClose = () => {
